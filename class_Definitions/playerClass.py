@@ -1,11 +1,10 @@
 import numpy as np 
 
 class Player:
-    def __init__(self, name, tribe, gender, challengeSkill, intelligenceSkill, socialSkill, luck=None):
+    def __init__(self, name, tribe, challengeSkill, intelligenceSkill, socialSkill, luck=None):
         # Player Attributes
         self.name = name
         self.tribe = tribe
-        self.gender = gender
         self.challengeSkill = challengeSkill
         self.intelligenceSkill = intelligenceSkill
         self.socialSkill = socialSkill
@@ -44,6 +43,7 @@ class Player:
             self.isJuryMember,
             self.curr_TribeSize
         ])
+
     def update_dynamic_context(self, tribe_size=None, alliance_size=None, morale=None, holdsHiddenImmunityIdol=None, holdsIndividualImmunity=None, votesReceived=None, immunityWins=None, isEliminated=None, isJuryMember=None):
         """
         Update dynamic game context variables.
@@ -77,13 +77,13 @@ class Player:
             self.morale = morale
 
     def __str__(self):
-                """
-                Return a string representation of the player's data.
-                """
-                return (f"Player: {self.name}, Tribe: {self.tribe}, Gender: {self.gender}, "
-                        f"Challenge Skill: {self.challengeSkill}, Intelligence Skill: {self.intelligenceSkill}, "
-                        f"Social Skill: {self.socialSkill}, Luck: {self.luck:.2f}, Morale: {self.morale:.2f}, "
-                        f"Holds Hidden Immunity Idol: {self.holdsHiddenImmunityIdol}, Holds Individual Immunity: {self.holdsIndividualImmunity}, "
-                        f"Votes Received: {self.votesReceived}, Immunity Wins: {self.immunityWins}, "
-                        f"Is Eliminated: {self.isEliminated}, Is Jury Member: {self.isJuryMember}, "
-                        f"Current Tribe Size: {self.curr_TribeSize}")
+        """
+        Return a string representation of the player's data.
+        """
+        return (f"Player: {self.name}, Tribe: {self.tribe}, "
+                f"Challenge Skill: {self.challengeSkill}, Intelligence Skill: {self.intelligenceSkill}, "
+                f"Social Skill: {self.socialSkill}, Luck: {self.luck:.2f}, Morale: {self.morale:.2f}, "
+                f"Holds Hidden Immunity Idol: {self.holdsHiddenImmunityIdol}, Holds Individual Immunity: {self.holdsIndividualImmunity}, "
+                f"Votes Received: {self.votesReceived}, Immunity Wins: {self.immunityWins}, "
+                f"Is Eliminated: {self.isEliminated}, Is Jury Member: {self.isJuryMember}, "
+                f"Current Tribe Size: {self.curr_TribeSize}")

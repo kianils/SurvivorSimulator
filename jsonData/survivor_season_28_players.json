@@ -1,0 +1,200 @@
+[
+    {
+        "name": "Alexis Maxwell",
+        "tribe": "Unknown",
+        "challengeSkill": 3.74,
+        "intelligenceSkill": 0.57,
+        "socialSkill": 5.0,
+        "luck": 0.87,
+        "immunityWins": 0,
+        "votesReceived": 8,
+        "morale": 0.54
+    },
+    {
+        "name": "Brice Johnston",
+        "tribe": "Unknown",
+        "challengeSkill": 2.7,
+        "intelligenceSkill": -0.06,
+        "socialSkill": 1,
+        "luck": 0.76,
+        "immunityWins": 0,
+        "votesReceived": 2,
+        "morale": 0.79
+    },
+    {
+        "name": "Jefra Bland",
+        "tribe": "Unknown",
+        "challengeSkill": 2.31,
+        "intelligenceSkill": 0.92,
+        "socialSkill": 8.33,
+        "luck": 0.72,
+        "immunityWins": 5,
+        "votesReceived": 9,
+        "morale": 0.89
+    },
+    {
+        "name": "Jeremiah Wood",
+        "tribe": "Unknown",
+        "challengeSkill": 2.6,
+        "intelligenceSkill": 0.56,
+        "socialSkill": 6.67,
+        "luck": 0.79,
+        "immunityWins": 4,
+        "votesReceived": 9,
+        "morale": 0.85
+    },
+    {
+        "name": "LJ McKanas",
+        "tribe": "Unknown",
+        "challengeSkill": 2.82,
+        "intelligenceSkill": 0.84,
+        "socialSkill": 7.5,
+        "luck": 0.79,
+        "immunityWins": 3,
+        "votesReceived": 8,
+        "morale": 0.97
+    },
+    {
+        "name": "Morgan McLeod",
+        "tribe": "Unknown",
+        "challengeSkill": 1.78,
+        "intelligenceSkill": 0.37,
+        "socialSkill": 5.0,
+        "luck": 0.62,
+        "immunityWins": 2,
+        "votesReceived": 8,
+        "morale": 0.55
+    },
+    {
+        "name": "David Samson",
+        "tribe": "Unknown",
+        "challengeSkill": 0.0,
+        "intelligenceSkill": -0.67,
+        "socialSkill": 1,
+        "luck": 0.74,
+        "immunityWins": 0,
+        "votesReceived": 4,
+        "morale": 0.54
+    },
+    {
+        "name": "Garrett Adelstein",
+        "tribe": "Unknown",
+        "challengeSkill": 0.0,
+        "intelligenceSkill": 0.36,
+        "socialSkill": 5.0,
+        "luck": 0.82,
+        "immunityWins": 0,
+        "votesReceived": 3,
+        "morale": 0.56
+    },
+    {
+        "name": "J'Tia Taylor",
+        "tribe": "Unknown",
+        "challengeSkill": 1.12,
+        "intelligenceSkill": 0.62,
+        "socialSkill": 6.67,
+        "luck": 0.53,
+        "immunityWins": 0,
+        "votesReceived": 7,
+        "morale": 0.83
+    },
+    {
+        "name": "Kass McQuillen",
+        "tribe": "Unknown",
+        "challengeSkill": 1.26,
+        "intelligenceSkill": 0.82,
+        "socialSkill": 9.0,
+        "luck": 0.56,
+        "immunityWins": 10,
+        "votesReceived": 2,
+        "morale": 0.55
+    },
+    {
+        "name": "Spencer Bledsoe",
+        "tribe": "Unknown",
+        "challengeSkill": 3.69,
+        "intelligenceSkill": 0.86,
+        "socialSkill": 8.57,
+        "luck": 0.74,
+        "immunityWins": 11,
+        "votesReceived": 8,
+        "morale": 0.54
+    },
+    {
+        "name": "Tasha Fox",
+        "tribe": "Unknown",
+        "challengeSkill": 3.96,
+        "intelligenceSkill": 0.99,
+        "socialSkill": 8.57,
+        "luck": 0.67,
+        "immunityWins": 9,
+        "votesReceived": 4,
+        "morale": 0.58
+    },
+    {
+        "name": "Cliff Robinson",
+        "tribe": "Unknown",
+        "challengeSkill": 5.09,
+        "intelligenceSkill": -0.06,
+        "socialSkill": 1,
+        "luck": 0.64,
+        "immunityWins": 0,
+        "votesReceived": 4,
+        "morale": 0.79
+    },
+    {
+        "name": "Lindsey Ogle*",
+        "tribe": "Unknown",
+        "challengeSkill": 3.86,
+        "intelligenceSkill": -0.08,
+        "socialSkill": 1,
+        "luck": 0.95,
+        "immunityWins": 0,
+        "votesReceived": 6,
+        "morale": 0.75
+    },
+    {
+        "name": "Sarah Lacina",
+        "tribe": "Unknown",
+        "challengeSkill": 2.92,
+        "intelligenceSkill": 0.63,
+        "socialSkill": 5.0,
+        "luck": 0.77,
+        "immunityWins": 1,
+        "votesReceived": 6,
+        "morale": 0.99
+    },
+    {
+        "name": "Tony Vlachos",
+        "tribe": "Unknown",
+        "challengeSkill": 1.77,
+        "intelligenceSkill": 2.06,
+        "socialSkill": 9.09,
+        "luck": 0.6,
+        "immunityWins": 9,
+        "votesReceived": 5,
+        "morale": 0.86
+    },
+    {
+        "name": "Trish Hegarty",
+        "tribe": "Unknown",
+        "challengeSkill": 1.21,
+        "intelligenceSkill": 0.74,
+        "socialSkill": 8.33,
+        "luck": 0.79,
+        "immunityWins": 7,
+        "votesReceived": 5,
+        "morale": 0.97
+    },
+    {
+        "name": "Woo Hwang",
+        "tribe": "Unknown",
+        "challengeSkill": 2.73,
+        "intelligenceSkill": 1.28,
+        "socialSkill": 9.0,
+        "luck": 0.65,
+        "immunityWins": 11,
+        "votesReceived": 4,
+        "morale": 0.81
+    }
+]
