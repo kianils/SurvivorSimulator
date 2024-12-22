@@ -1,1 +1,9 @@
-{"season_number": "28"}
+{
+    "season_number": "28",
+    "rounds": [
+        {
+            "round": 1,
+            "losing_tribe": "Tribe 2"
+        }
+    ]
+}

@@ -1,47 +1,7 @@
 [
     {
-        "name": "1",
+        "name": "Tribe 1",
         "players": [
-            {
-                "name": "Alexis Maxwell",
-                "challengeSkill": 3.74,
-                "intelligenceSkill": 0.57,
-                "socialSkill": 5.0,
-                "luck": 0.87,
-                "immunityWins": 0,
-                "votesReceived": 8,
-                "morale": 0.54
-            },
-            {
-                "name": "Jeremiah Wood",
-                "challengeSkill": 2.6,
-                "intelligenceSkill": 0.56,
-                "socialSkill": 6.67,
-                "luck": 0.79,
-                "immunityWins": 4,
-                "votesReceived": 9,
-                "morale": 0.85
-            },
-            {
-                "name": "David Samson",
-                "challengeSkill": 0.0,
-                "intelligenceSkill": -0.67,
-                "socialSkill": 1,
-                "luck": 0.74,
-                "immunityWins": 0,
-                "votesReceived": 4,
-                "morale": 0.54
-            },
-            {
-                "name": "Kass McQuillen",
-                "challengeSkill": 1.26,
-                "intelligenceSkill": 0.82,
-                "socialSkill": 9.0,
-                "luck": 0.56,
-                "immunityWins": 10,
-                "votesReceived": 2,
-                "morale": 0.55
-            },
             {
                 "name": "Cliff Robinson",
                 "challengeSkill": 5.09,
@@ -51,64 +11,6 @@
                 "immunityWins": 0,
                 "votesReceived": 4,
                 "morale": 0.79
-            },
-            {
-                "name": "Tony Vlachos",
-                "challengeSkill": 1.77,
-                "intelligenceSkill": 2.06,
-                "socialSkill": 9.09,
-                "luck": 0.6,
-                "immunityWins": 9,
-                "votesReceived": 5,
-                "morale": 0.86
-            }
-        ],
-        "tribe_strength": 14.46,
-        "morale": 0.6883333333333334,
-        "cohesion": 5.293333333333333
-    },
-    {
-        "name": "2",
-        "players": [
-            {
-                "name": "Brice Johnston",
-                "challengeSkill": 2.7,
-                "intelligenceSkill": -0.06,
-                "socialSkill": 1,
-                "luck": 0.76,
-                "immunityWins": 0,
-                "votesReceived": 2,
-                "morale": 0.79
-            },
-            {
-                "name": "LJ McKanas",
-                "challengeSkill": 2.82,
-                "intelligenceSkill": 0.84,
-                "socialSkill": 7.5,
-                "luck": 0.79,
-                "immunityWins": 3,
-                "votesReceived": 8,
-                "morale": 0.97
-            },
-            {
-                "name": "Garrett Adelstein",
-                "challengeSkill": 0.0,
-                "intelligenceSkill": 0.36,
-                "socialSkill": 5.0,
-                "luck": 0.82,
-                "immunityWins": 0,
-                "votesReceived": 3,
-                "morale": 0.56
-            },
-            {
-                "name": "Spencer Bledsoe",
-                "challengeSkill": 3.69,
-                "intelligenceSkill": 0.86,
-                "socialSkill": 8.57,
-                "luck": 0.74,
-                "immunityWins": 11,
-                "votesReceived": 8,
-                "morale": 0.54
             },
             {
                 "name": "Lindsey Ogle*",
@@ -121,23 +23,35 @@
                 "morale": 0.75
             },
             {
-                "name": "Trish Hegarty",
-                "challengeSkill": 1.21,
-                "intelligenceSkill": 0.74,
-                "socialSkill": 8.33,
+                "name": "Spencer Bledsoe",
+                "challengeSkill": 3.69,
+                "intelligenceSkill": 0.86,
+                "socialSkill": 8.57,
+                "luck": 0.74,
+                "immunityWins": 11,
+                "votesReceived": 8,
+                "morale": 0.54
+            },
+            {
+                "name": "LJ McKanas",
+                "challengeSkill": 2.82,
+                "intelligenceSkill": 0.84,
+                "socialSkill": 7.5,
                 "luck": 0.79,
-                "immunityWins": 7,
-                "votesReceived": 5,
+                "immunityWins": 3,
+                "votesReceived": 8,
                 "morale": 0.97
-            }
-        ],
-        "tribe_strength": 14.28,
-        "morale": 0.7633333333333333,
-        "cohesion": 5.233333333333333
-    },
-    {
-        "name": "3",
-        "players": [
+            },
+            {
+                "name": "Brice Johnston",
+                "challengeSkill": 2.7,
+                "intelligenceSkill": -0.06,
+                "socialSkill": 1,
+                "luck": 0.76,
+                "immunityWins": 0,
+                "votesReceived": 2,
+                "morale": 0.79
+            },
             {
                 "name": "Jefra Bland",
                 "challengeSkill": 2.31,
@@ -149,25 +63,43 @@
                 "morale": 0.89
             },
             {
-                "name": "Morgan McLeod",
-                "challengeSkill": 1.78,
-                "intelligenceSkill": 0.37,
-                "socialSkill": 5.0,
-                "luck": 0.62,
-                "immunityWins": 2,
-                "votesReceived": 8,
-                "morale": 0.55
+                "name": "Tony Vlachos",
+                "challengeSkill": 1.77,
+                "intelligenceSkill": 2.06,
+                "socialSkill": 9.09,
+                "luck": 0.6,
+                "immunityWins": 9,
+                "votesReceived": 5,
+                "morale": 0.86
             },
             {
-                "name": "J'Tia Taylor",
-                "challengeSkill": 1.12,
-                "intelligenceSkill": 0.62,
-                "socialSkill": 6.67,
-                "luck": 0.53,
-                "immunityWins": 0,
-                "votesReceived": 7,
-                "morale": 0.83
+                "name": "Trish Hegarty",
+                "challengeSkill": 1.21,
+                "intelligenceSkill": 0.74,
+                "socialSkill": 8.33,
+                "luck": 0.79,
+                "immunityWins": 7,
+                "votesReceived": 5,
+                "morale": 0.97
             },
+            {
+                "name": "Garrett Adelstein",
+                "challengeSkill": 0.0,
+                "intelligenceSkill": 0.36,
+                "socialSkill": 5.0,
+                "luck": 0.82,
+                "immunityWins": 0,
+                "votesReceived": 3,
+                "morale": 0.56
+            }
+        ],
+        "tribe_strength": 23.45,
+        "morale": 0.7911111111111111,
+        "cohesion": 5.535555555555556
+    },
+    {
+        "name": "Tribe 2",
+        "players": [
             {
                 "name": "Tasha Fox",
                 "challengeSkill": 3.96,
@@ -177,6 +109,16 @@
                 "immunityWins": 9,
                 "votesReceived": 4,
                 "morale": 0.58
+            },
+            {
+                "name": "Alexis Maxwell",
+                "challengeSkill": 3.74,
+                "intelligenceSkill": 0.57,
+                "socialSkill": 5.0,
+                "luck": 0.87,
+                "immunityWins": 0,
+                "votesReceived": 8,
+                "morale": 0.54
             },
             {
                 "name": "Sarah Lacina",
@@ -197,10 +139,60 @@
                 "immunityWins": 11,
                 "votesReceived": 4,
                 "morale": 0.81
+            },
+            {
+                "name": "Jeremiah Wood",
+                "challengeSkill": 2.6,
+                "intelligenceSkill": 0.56,
+                "socialSkill": 6.67,
+                "luck": 0.79,
+                "immunityWins": 4,
+                "votesReceived": 9,
+                "morale": 0.85
+            },
+            {
+                "name": "Morgan McLeod",
+                "challengeSkill": 1.78,
+                "intelligenceSkill": 0.37,
+                "socialSkill": 5.0,
+                "luck": 0.62,
+                "immunityWins": 2,
+                "votesReceived": 8,
+                "morale": 0.55
+            },
+            {
+                "name": "Kass McQuillen",
+                "challengeSkill": 1.26,
+                "intelligenceSkill": 0.82,
+                "socialSkill": 9.0,
+                "luck": 0.56,
+                "immunityWins": 10,
+                "votesReceived": 2,
+                "morale": 0.55
+            },
+            {
+                "name": "J'Tia Taylor",
+                "challengeSkill": 1.12,
+                "intelligenceSkill": 0.62,
+                "socialSkill": 6.67,
+                "luck": 0.53,
+                "immunityWins": 0,
+                "votesReceived": 7,
+                "morale": 0.83
+            },
+            {
+                "name": "David Samson",
+                "challengeSkill": 0.0,
+                "intelligenceSkill": -0.67,
+                "socialSkill": 1,
+                "luck": 0.74,
+                "immunityWins": 0,
+                "votesReceived": 4,
+                "morale": 0.54
             }
         ],
-        "tribe_strength": 14.82,
-        "morale": 0.775,
-        "cohesion": 7.095
+        "tribe_strength": 20.11,
+        "morale": 0.6933333333333334,
+        "cohesion": 6.212222222222222
     }
 ]
