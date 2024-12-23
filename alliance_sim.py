@@ -1,21 +1,16 @@
-import json
-import networkx as nx
-import numpy as np
+import pandas as pd
+from itertools import combinations
 from class_Definitions.tribeClass import Tribe
 from class_Definitions.playerClass import Player
+import json
+import networkx as nx
 
 def load_tribes_from_json(file_path):
-    """
-    Load tribes and players from a JSON file.
-    :param file_path: Path to the JSON file.
-    :return: List of Tribe objects.
-    """
     try:
         with open(file_path, "r") as file:
             data = json.load(file)
             tribes = []
             for tribe_data in data:
-                # Create Player objects for each player in the tribe
                 players = [
                     Player(
                         name=player["name"],
@@ -26,9 +21,8 @@ def load_tribes_from_json(file_path):
                         luck=player["luck"]
                     ) for player in tribe_data["players"]
                 ]
-                # Create Tribe object
                 tribe = Tribe(name=tribe_data["name"], players=players)
-                tribe.update_tribe_stats()  # Ensure stats are updated
+                tribe.update_tribe_stats()
                 tribes.append(tribe)
             return tribes
     except FileNotFoundError:
@@ -38,82 +32,77 @@ def load_tribes_from_json(file_path):
         print("Error: The JSON file is corrupted or not valid JSON.")
         return []
 
-def create_social_graph(tribes):
-    """
-    Create a social graph for players within each tribe.
-    :param tribes: List of Tribe objects.
-    :return: A dictionary of tribe names mapped to their respective social graphs.
-    """
-    tribe_graphs = {}
+def generate_pairwise_features(tribe):
+    if len(tribe.players) < 2:
+        return pd.DataFrame()  # Return an empty DataFrame for tribes with less than two players
 
-    for tribe in tribes:
-        # Initialize a graph for this tribe
-        graph = nx.Graph()
+    player_pairs = list(combinations(tribe.players, 2))
+    features = []
 
-        # Add players as nodes
-        for player in tribe.players:
-            graph.add_node(player.name, player=player)
+    for player1, player2 in player_pairs:
+        social_skill_diff = abs(player1.socialSkill - player2.socialSkill)
+        morale_diff = abs(player1.morale - player2.morale)
+        combined_challenge_skill = (player1.challengeSkill + player2.challengeSkill) / 2
+        combined_luck = (player1.luck + player2.luck) / 2
 
-        # Add edges between players in the same tribe
-        for i, player1 in enumerate(tribe.players):
-            for j, player2 in enumerate(tribe.players):
-                if i < j:  # Avoid duplicate edges
-                    # Calculate relationship weight
-                    social_similarity = (player1.socialSkill + player2.socialSkill) / 2
-                    morale_similarity = abs(player1.morale - player2.morale)
-                    weight = social_similarity - morale_similarity + np.random.uniform(-1, 1)
-                    weight = max(weight, 1)  # Ensure the weight is positive
+        features.append({
+            "player1": player1.name,
+            "player2": player2.name,
+            "social_skill_diff": social_skill_diff,
+            "morale_diff": morale_diff,
+            "combined_challenge_skill": combined_challenge_skill,
+            "combined_luck": combined_luck,
+        })
 
-                    # Add edge to the graph
-                    graph.add_edge(player1.name, player2.name, weight=weight)
+    return pd.DataFrame(features)
 
-        # Store the graph for this tribe
-        tribe_graphs[tribe.name] = graph
+def build_social_graph(pairwise_data):
+    graph = nx.Graph()
 
-    return tribe_graphs
+    for _, row in pairwise_data.iterrows():
+        weight = 10 - (row["social_skill_diff"] + row["morale_diff"])
+        if weight > 0:
+            graph.add_edge(row["player1"], row["player2"], weight=weight)
+
+    return graph
 
 def form_alliances_from_graph(graph, weight_threshold=5):
-    """
-    Form alliances from a social graph by clustering strong relationships.
-    :param graph: NetworkX graph representing social relationships.
-    :param weight_threshold: Minimum weight for strong relationships.
-    :return: List of alliances (as lists of player names).
-    """
     alliances = []
     visited = set()
 
     for node in graph.nodes:
         if node not in visited:
-            # Find all nodes connected to this node with strong relationships
             alliance = []
             for neighbor in graph.neighbors(node):
-                if graph[node][neighbor]['weight'] >= weight_threshold:
+                if graph[node][neighbor]["weight"] >= weight_threshold:
                     alliance.append(neighbor)
 
-            # Add the current node to the alliance
             alliance.append(node)
             visited.update(alliance)
 
-            # Only add alliances with more than one player
             if len(alliance) > 1:
                 alliances.append(alliance)
 
     return alliances
 
-# Example Usage
 if __name__ == "__main__":
-    # Load tribes from JSON
     tribes = load_tribes_from_json("jsonData/sorted_tribes.json")
+
     if not tribes:
         print("Error: No tribes loaded. Exiting.")
         exit()
 
-    # Create social graphs for each tribe
-    tribe_graphs = create_social_graph(tribes)
+    all_tribe_alliances = {}
+    for tribe in tribes:
+        pairwise_data = generate_pairwise_features(tribe)
+        social_graph = build_social_graph(pairwise_data)
+        alliances = form_alliances_from_graph(social_graph, weight_threshold=5)
+        all_tribe_alliances[tribe.name] = alliances
 
-    # Form alliances and display them
-    for tribe_name, graph in tribe_graphs.items():
-        print(f"Alliances in {tribe_name}:")
-        alliances = form_alliances_from_graph(graph)
+        print(f"\nAlliances in {tribe.name}:")
         for i, alliance in enumerate(alliances):
             print(f"  Alliance {i+1}: {alliance}")
+
+    # Save alliances to a JSON file
+    with open("jsonData/tribe_alliances.json", "w") as file:
+        json.dump(all_tribe_alliances, file, indent=4)
