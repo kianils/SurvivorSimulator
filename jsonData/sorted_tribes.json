@@ -3,26 +3,6 @@
         "name": "Tribe 1",
         "players": [
             {
-                "name": "Cliff Robinson",
-                "challengeSkill": 5.09,
-                "intelligenceSkill": -0.06,
-                "socialSkill": 1,
-                "luck": 0.64,
-                "immunityWins": 0,
-                "votesReceived": 0,
-                "morale": 0.8069310292860294
-            },
-            {
-                "name": "Lindsey Ogle*",
-                "challengeSkill": 3.86,
-                "intelligenceSkill": -0.08,
-                "socialSkill": 1,
-                "luck": 0.95,
-                "immunityWins": 0,
-                "votesReceived": 0,
-                "morale": 0.48647414517739807
-            },
-            {
                 "name": "Spencer Bledsoe",
                 "challengeSkill": 3.69,
                 "intelligenceSkill": 0.86,
@@ -30,7 +10,7 @@
                 "luck": 0.74,
                 "immunityWins": 0,
                 "votesReceived": 0,
-                "morale": 0.8977587802222253
+                "morale": 0.3401237062874385
             },
             {
                 "name": "LJ McKanas",
@@ -40,7 +20,7 @@
                 "luck": 0.79,
                 "immunityWins": 0,
                 "votesReceived": 0,
-                "morale": 0.9872139270663188
+                "morale": 0.8986446931449699
             },
             {
                 "name": "Brice Johnston",
@@ -50,7 +30,7 @@
                 "luck": 0.76,
                 "immunityWins": 0,
                 "votesReceived": 0,
-                "morale": 0.8094262654337486
+                "morale": 0.1867950644417547
             },
             {
                 "name": "Jefra Bland",
@@ -60,7 +40,7 @@
                 "luck": 0.72,
                 "immunityWins": 0,
                 "votesReceived": 0,
-                "morale": 0.7932448691411733
+                "morale": 0.6398839142658888
             },
             {
                 "name": "Tony Vlachos",
@@ -70,7 +50,7 @@
                 "luck": 0.6,
                 "immunityWins": 0,
                 "votesReceived": 0,
-                "morale": 0.8886875376840196
+                "morale": 0.9517849454220397
             },
             {
                 "name": "Trish Hegarty",
@@ -80,7 +60,7 @@
                 "luck": 0.79,
                 "immunityWins": 0,
                 "votesReceived": 0,
-                "morale": 0.7827997868162965
+                "morale": 0.5378746123772119
             },
             {
                 "name": "Garrett Adelstein",
@@ -90,13 +70,23 @@
                 "luck": 0.82,
                 "immunityWins": 0,
                 "votesReceived": 0,
-                "morale": 0.22908345680136388
+                "morale": 0.8559465451835253
             }
         ]
     },
     {
         "name": "Tribe 2",
         "players": [
+            {
+                "name": "Alexis Maxwell",
+                "challengeSkill": 3.74,
+                "intelligenceSkill": 0.57,
+                "socialSkill": 5.0,
+                "luck": 0.87,
+                "immunityWins": 0,
+                "votesReceived": 0,
+                "morale": 0.9258882701634789
+            },
             {
                 "name": "Sarah Lacina",
                 "challengeSkill": 2.92,
@@ -105,7 +95,7 @@
                 "luck": 0.77,
                 "immunityWins": 0,
                 "votesReceived": 0,
-                "morale": 0.9292065653635779
+                "morale": 0.7980782772537812
             },
             {
                 "name": "Morgan McLeod",
@@ -115,7 +105,17 @@
                 "luck": 0.62,
                 "immunityWins": 0,
                 "votesReceived": 0,
-                "morale": 0.9887414360691441
+                "morale": 0.37571831595593375
+            },
+            {
+                "name": "J'Tia Taylor",
+                "challengeSkill": 1.12,
+                "intelligenceSkill": 0.62,
+                "socialSkill": 6.67,
+                "luck": 0.53,
+                "immunityWins": 0,
+                "votesReceived": 0,
+                "morale": 0.6248555261524887
             }
         ]
     }
