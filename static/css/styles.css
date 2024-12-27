@@ -1,0 +1,198 @@
+/* General Body Styling */
+body {
+    margin: 0;
+    padding: 0;
+    background: url('{{ url_for('static', filename='img/blue-lotus.jpg') }}') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative; /* For positioning the tiki torches */
+}
+
+/* Main Homepage Content */
+.homepage {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+    padding: 0 20px;
+}
+
+/* Torch Container */
+.tiki-torch-left,
+.tiki-torch-right {
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+}
+
+.tiki-torch-left {
+    left: 0;
+}
+
+.tiki-torch-right {
+    right: 0;
+}
+
+.tiki-torch {
+    width: 300px;
+    height: auto;
+    transform: translateY(20px);
+}
+
+.tiki-torch-right .tiki-torch {
+    transform: scaleX(-1) translateY(20px);
+}
+
+/* Torch Flame Styling */
+.torch-flame {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 70px;
+    background: radial-gradient(circle, rgba(255,165,0,1) 0%, rgba(255,69,0,1) 60%, transparent 100%);
+    border-radius: 50%;
+    animation: flicker 0.5s infinite;
+}
+
+/* Flicker Animation */
+@keyframes flicker {
+    0%, 100% {
+        transform: translateY(-10px) scale(1);
+        opacity: 0.9;
+    }
+    50% {
+        transform: translateY(-15px) scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* Embers Container */
+.embers-container {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 700px;
+    pointer-events: none;
+    overflow: visible;
+    z-index: 2;
+}
+
+/* Individual Ember Styling */
+.ember {
+    position: absolute;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(255,69,0,0.8) 0%, rgba(255,165,0,0) 100%);
+    border-radius: 50%;
+    animation: ember-rise infinite ease-out;
+    opacity: 1;
+}
+
+@keyframes ember-rise {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        opacity: 0.8;
+        transform: translate(-30px, -150px) scale(1.2);
+    }
+    50% {
+        opacity: 0.6;
+        transform: translate(30px, -400px) scale(1.4);
+    }
+    75% {
+        opacity: 0.4;
+        transform: translate(-50px, -600px) scale(1.6);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(50px, -700px) scale(2);
+    }
+}
+
+/* Logo and Text Centering */
+.logo-container {
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    transform: translateY(-200px);
+}
+
+.logo {
+    width: 600px;
+    height: auto;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.logo.bounce {
+    animation: bounce 2.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.font-link {
+    text-align: center;
+    margin: 0;
+}
+
+.font-link img {
+    width: auto;
+    height: auto;
+    max-width: 500px;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .homepage {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .tiki-torch {
+        width: 150px;
+    }
+
+    .logo {
+        width: 300px;
+    }
+
+    .font-link img {
+        max-width: 250px;
+    }
+
+    .tiki-torch-left {
+        bottom: 5px;
+        left: 10px;
+    }
+
+    .tiki-torch-right {
+        bottom: 5px;
+        right: 10px;
+    }
+}

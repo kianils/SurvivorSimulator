@@ -1,0 +1,17 @@
+<div class="torch">
+  <!-- Torch Image -->
+  <img src="{{url_for 'static/images/tiki-torch.png'}}" alt="Tiki Torch" class="tiki-torch" />
+
+  <!-- Flame Animation -->
+  <div class="torch-flame"></div>
+
+  <!-- Embers Animation -->
+  <div class="embers-container">
+    {{#each this.embers as |ember|}}
+      <div
+        class="ember"
+        style="left: {{ember.x}}%; width: {{ember.size}}px; height: {{ember.size}}px; animation-duration: {{ember.duration}}s;"
+      ></div>
+    {{/each}}
+  </div>
+</div>

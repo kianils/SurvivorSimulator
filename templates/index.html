@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survivor Simulator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="homepage">
+        <!-- Left Tiki Torch -->
+        <div class="tiki-torch-left">
+            <img src="{{ url_for('static', filename='img/tiki-torch.png') }}" alt="Tiki Torch" class="tiki-torch">
+            <div class="embers"></div>
+        </div>
+
+        <!-- Main Logo and Text -->
+        <div class="logo-container">
+            <a href="/start">
+                <img src="{{ url_for('static', filename='img/survivor-logo.png') }}" alt="Survivor Logo" class="logo bounce">
+            </a>
+            <div class="font-link">
+                <a href="https://fontmeme.com/survivor-font/" target="_blank">
+                    <img src="https://fontmeme.com/permalink/241227/0ce1657703f17fcb52dd44a1155bb3cf.png" alt="Survivor Font" border="0">
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Tiki Torch -->
+        <div class="tiki-torch-right">
+            <img src="{{ url_for('static', filename='img/tiki-torch.png') }}" alt="Tiki Torch" class="tiki-torch">
+            <div class="embers"></div>
+        </div>
+    </div>
+</body>
+</html>
