@@ -7,30 +7,91 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
+    <!-- Background Audio -->
+    <audio id="background-audio" autoplay loop>
+        <source src="{{ url_for('static', filename='audio/survivor-theme.mp3') }}" type="audio/mpeg">
+        Your browser does not support the audio element. Please update your browser.
+    </audio>
+
+    <!-- Play/Pause Button -->
+    <div class="audio-controls">
+        <button id="audio-toggle" aria-label="Toggle Background Music">
+            <img id="audio-icon" src="{{ url_for('static', filename='img/audio-on-icon.png') }}" alt="Toggle Music" class="audio-icon">
+        </button>
+    </div>
+
     <div class="homepage">
         <!-- Left Tiki Torch -->
         <div class="tiki-torch-left">
             <img src="{{ url_for('static', filename='img/tiki-torch.png') }}" alt="Tiki Torch" class="tiki-torch">
-            <div class="embers"></div>
         </div>
 
-        <!-- Main Logo and Text -->
+        <!-- Survivor Logo -->
         <div class="logo-container">
-            <a href="/start">
-                <img src="{{ url_for('static', filename='img/survivor-logo.png') }}" alt="Survivor Logo" class="logo bounce">
-            </a>
-            <div class="font-link">
-                <a href="https://fontmeme.com/survivor-font/" target="_blank">
-                    <img src="https://fontmeme.com/permalink/241227/0ce1657703f17fcb52dd44a1155bb3cf.png" alt="Survivor Font" border="0">
-                </a>
-            </div>
+            <img id="survivor-logo" src="{{ url_for('static', filename='img/survivor-logo.png') }}" 
+                 alt="Survivor Logo" class="logo">
         </div>
 
         <!-- Right Tiki Torch -->
         <div class="tiki-torch-right">
             <img src="{{ url_for('static', filename='img/tiki-torch.png') }}" alt="Tiki Torch" class="tiki-torch">
-            <div class="embers"></div>
         </div>
     </div>
+
+    <!-- Black Ribbon -->
+    <div id="black-ribbon" class="hidden">
+        <a href="https://fontmeme.com/survivor-font/">
+            <img src="https://fontmeme.com/permalink/241228/8aac0ef1a939b9b2fc056c050589c594.png" alt="survivor-font" border="0">
+        </a>
+    </div>
+
+    <!-- Input Box -->
+    <div id="input-container" class="hidden">
+        <input type="number" id="user-input" placeholder="Enter season number">
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const logo = document.getElementById('survivor-logo');
+            const ribbon = document.getElementById('black-ribbon');
+            const inputContainer = document.getElementById('input-container');
+            const audio = document.getElementById('background-audio');
+            const audioToggle = document.getElementById('audio-toggle');
+            const audioIcon = document.getElementById('audio-icon');
+
+            // Initialize the audio icon based on current audio state
+            const updateAudioIcon = () => {
+                if (audio.paused) {
+                    audioIcon.src = "{{ url_for('static', filename='img/audio-off-icon.png') }}";
+                } else {
+                    audioIcon.src = "{{ url_for('static', filename='img/audio-on-icon.png') }}";
+                }
+            };
+
+            // Set initial state of the audio icon
+            updateAudioIcon();
+
+            // Handle logo click
+            logo.addEventListener('click', () => {
+                // Hide the logo
+                logo.style.display = 'none';
+
+                // Show the ribbon and input box
+                ribbon.classList.remove('hidden');
+                inputContainer.classList.remove('hidden');
+            });
+
+            // Handle audio play/pause toggle
+            audioToggle.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play();
+                } else {
+                    audio.pause();
+                }
+                updateAudioIcon(); // Update the icon based on the audio state
+            });
+        });
+    </script>
 </body>
 </html>
