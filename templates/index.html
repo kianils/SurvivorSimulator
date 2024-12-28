@@ -47,7 +47,10 @@
 
     <!-- Input Box -->
     <div id="input-container" class="hidden">
-        <input type="number" id="user-input" placeholder="Enter season number">
+        <form action="/process_season" method="POST">
+            <input type="number" id="user-input" name="season_number" placeholder="Enter season number" required>
+            <button type="submit" id="submit-button">Submit</button>
+        </form>
     </div>
 
     <!-- JavaScript -->
