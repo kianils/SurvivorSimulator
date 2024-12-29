@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survivor Simulator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- Background Audio -->
+    <audio id="background-audio" autoplay loop>
+        <source src="{{ url_for('static', filename='audio/survivor-theme.mp3') }}" type="audio/mpeg">
+        Your browser does not support the audio element. Please update your browser.
+    </audio>
+
+    <!-- Play/Pause Button -->
+    <div class="audio-controls">
+        <button id="audio-toggle" aria-label="Toggle Background Music">
+            <img id="audio-icon" src="{{ url_for('static', filename='img/audio-on-icon.png') }}" alt="Toggle Music" class="audio-icon">
+        </button>
+    </div>
+
+    <div class="homepage">
+        <!-- Left Tiki Torch -->
+        <div class="tiki-torch-left">
+            <img src="{{ url_for('static', filename='img/tiki-torch.png') }}" alt="Tiki Torch" class="tiki-torch">
+        </div>
+
+        <!-- Right Tiki Torch -->
+        <div class="tiki-torch-right">
+            <img src="{{ url_for('static', filename='img/tiki-torch.png') }}" alt="Tiki Torch" class="tiki-torch">
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('background-audio');
+            const audioToggle = document.getElementById('audio-toggle');
+            const audioIcon = document.getElementById('audio-icon');
+
+            // Initialize the audio icon based on the current audio state
+            const updateAudioIcon = () => {
+                if (audio.paused) {
+                    audioIcon.src = "{{ url_for('static', filename='img/audio-off-icon.png') }}";
+                    audioToggle.setAttribute('aria-label', 'Play Background Music');
+                } else {
+                    audioIcon.src = "{{ url_for('static', filename='img/audio-on-icon.png') }}";
+                    audioToggle.setAttribute('aria-label', 'Pause Background Music');
+                }
+            };
+
+            // Set initial state of the audio icon
+            updateAudioIcon();
+
+            // Handle audio play/pause toggle
+            audioToggle.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play();
+                } else {
+                    audio.pause();
+                }
+                updateAudioIcon(); // Update the icon based on the audio state
+            });
+        });
+    </script>
+</body>
+</html>
