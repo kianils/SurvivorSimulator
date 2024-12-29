@@ -20,11 +20,53 @@
         </button>
     </div>
 
+    <!-- Main Content -->
     <div class="homepage">
         <!-- Left Tiki Torch -->
         <div class="tiki-torch-left">
             <img src="{{ url_for('static', filename='img/tiki-torch.png') }}" alt="Tiki Torch" class="tiki-torch">
         </div>
+        <h1>Initialized Players for Season {{ season_number }}</h1>
+
+        {% if players and players|length > 0 %}
+            <h2>Total Players Initialized: {{ players|length }}</h2>
+            <p>Below is the list of players and their stats:</p>
+            <table border="1" class="players-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Tribe</th>
+                        <th>Challenge Skill</th>
+                        <th>Intelligence Skill</th>
+                        <th>Social Skill</th>
+                        <th>Luck</th>
+                        <th>Immunity Wins</th>
+                        <th>Votes Received</th>
+                        <th>Morale</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for player in players %}
+                    <tr>
+                        <td>{{ player.name }}</td>
+                        <td>{{ player.tribe }}</td>
+                        <td>{{ player.challengeSkill }}</td>
+                        <td>{{ player.intelligenceSkill }}</td>
+                        <td>{{ player.socialSkill }}</td>
+                        <td>{{ player.luck }}</td>
+                        <td>{{ player.immunityWins }}</td>
+                        <td>{{ player.votesReceived }}</td>
+                        <td>{{ player.morale }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No players found for this season.</p>
+        {% endif %}
+    
+        <!-- Go Back Button -->
+        <a href="/" class="go-back-button">Go Back</a>
 
         <!-- Right Tiki Torch -->
         <div class="tiki-torch-right">
@@ -32,14 +74,14 @@
         </div>
     </div>
 
-    <!-- JavaScript -->
+    <!-- JavaScript for Play/Pause Button -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const audio = document.getElementById('background-audio');
             const audioToggle = document.getElementById('audio-toggle');
             const audioIcon = document.getElementById('audio-icon');
 
-            // Initialize the audio icon based on the current audio state
+            // Function to update the audio icon
             const updateAudioIcon = () => {
                 if (audio.paused) {
                     audioIcon.src = "{{ url_for('static', filename='img/audio-off-icon.png') }}";
@@ -53,14 +95,14 @@
             // Set initial state of the audio icon
             updateAudioIcon();
 
-            // Handle audio play/pause toggle
+            // Event listener for the audio toggle button
             audioToggle.addEventListener('click', () => {
                 if (audio.paused) {
                     audio.play();
                 } else {
                     audio.pause();
                 }
-                updateAudioIcon(); // Update the icon based on the audio state
+                updateAudioIcon();
             });
         });
     </script>
