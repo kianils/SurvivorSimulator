@@ -1,0 +1,222 @@
+[
+    {
+        "name": "Adam Klein",
+        "tribe": "Unknown",
+        "challengeSkill": 1.33,
+        "intelligenceSkill": 1.88,
+        "socialSkill": 9.0,
+        "luck": 0.85,
+        "immunityWins": 11.0,
+        "votesReceived": 6.0,
+        "morale": 0.75
+    },
+    {
+        "name": "Figgy Figueroa",
+        "tribe": "Unknown",
+        "challengeSkill": 4.27,
+        "intelligenceSkill": 0.73,
+        "socialSkill": 5.0,
+        "luck": 0.5,
+        "immunityWins": 0.0,
+        "votesReceived": 6.0,
+        "morale": 0.99
+    },
+    {
+        "name": "Hannah Shapiro",
+        "tribe": "Unknown",
+        "challengeSkill": 0.84,
+        "intelligenceSkill": 0.83,
+        "socialSkill": 9.0,
+        "luck": 0.63,
+        "immunityWins": 10.0,
+        "votesReceived": 5.0,
+        "morale": 0.66
+    },
+    {
+        "name": "Jay Starrett",
+        "tribe": "Unknown",
+        "challengeSkill": 3.6,
+        "intelligenceSkill": 0.65,
+        "socialSkill": 7.5,
+        "luck": 0.75,
+        "immunityWins": 10.0,
+        "votesReceived": 9.0,
+        "morale": 0.81
+    },
+    {
+        "name": "Mari Takahashi",
+        "tribe": "Unknown",
+        "challengeSkill": 4.74,
+        "intelligenceSkill": -0.23,
+        "socialSkill": 1,
+        "luck": 0.82,
+        "immunityWins": 0.0,
+        "votesReceived": 7.0,
+        "morale": 0.5
+    },
+    {
+        "name": "Michaela Bradshaw",
+        "tribe": "Unknown",
+        "challengeSkill": 6.81,
+        "intelligenceSkill": 1.06,
+        "socialSkill": 5.0,
+        "luck": 0.99,
+        "immunityWins": 0.0,
+        "votesReceived": 4.0,
+        "morale": 0.73
+    },
+    {
+        "name": "Michelle Schubert",
+        "tribe": "Unknown",
+        "challengeSkill": 4.31,
+        "intelligenceSkill": 0.98,
+        "socialSkill": 6.67,
+        "luck": 0.79,
+        "immunityWins": 1.0,
+        "votesReceived": 10.0,
+        "morale": 0.92
+    },
+    {
+        "name": "Taylor Stocker",
+        "tribe": "Unknown",
+        "challengeSkill": 2.31,
+        "intelligenceSkill": 0.44,
+        "socialSkill": 5.0,
+        "luck": 0.6,
+        "immunityWins": 2.0,
+        "votesReceived": 7.0,
+        "morale": 0.73
+    },
+    {
+        "name": "Will Wahl",
+        "tribe": "Unknown",
+        "challengeSkill": 1.72,
+        "intelligenceSkill": 0.66,
+        "socialSkill": 8.0,
+        "luck": 0.88,
+        "immunityWins": 7.0,
+        "votesReceived": 6.0,
+        "morale": 0.73
+    },
+    {
+        "name": "Zeke Smith",
+        "tribe": "Unknown",
+        "challengeSkill": 1.97,
+        "intelligenceSkill": 0.75,
+        "socialSkill": 8.0,
+        "luck": 0.65,
+        "immunityWins": 5.0,
+        "votesReceived": 10.0,
+        "morale": 1.0
+    },
+    {
+        "name": "Bret LaBelle",
+        "tribe": "Unknown",
+        "challengeSkill": 1.13,
+        "intelligenceSkill": 0.49,
+        "socialSkill": 8.33,
+        "luck": 0.71,
+        "immunityWins": 9.0,
+        "votesReceived": 5.0,
+        "morale": 0.51
+    },
+    {
+        "name": "Chris Hammons",
+        "tribe": "Unknown",
+        "challengeSkill": 2.36,
+        "intelligenceSkill": 0.79,
+        "socialSkill": 8.0,
+        "luck": 0.68,
+        "immunityWins": 3.0,
+        "votesReceived": 7.0,
+        "morale": 0.83
+    },
+    {
+        "name": "CeCe Taylor",
+        "tribe": "Unknown",
+        "challengeSkill": 3.06,
+        "intelligenceSkill": 0.72,
+        "socialSkill": 6.67,
+        "luck": 0.83,
+        "immunityWins": 0.0,
+        "votesReceived": 11.0,
+        "morale": 0.5
+    },
+    {
+        "name": "David Wright",
+        "tribe": "Unknown",
+        "challengeSkill": 2.38,
+        "intelligenceSkill": 1.09,
+        "socialSkill": 9.23,
+        "luck": 0.55,
+        "immunityWins": 12.0,
+        "votesReceived": 10.0,
+        "morale": 0.68
+    },
+    {
+        "name": "Jessica Lewis",
+        "tribe": "Unknown",
+        "challengeSkill": 0.94,
+        "intelligenceSkill": 0.59,
+        "socialSkill": 8.0,
+        "luck": 0.84,
+        "immunityWins": 4.0,
+        "votesReceived": 4.0,
+        "morale": 0.6
+    },
+    {
+        "name": "Ken McNickle",
+        "tribe": "Unknown",
+        "challengeSkill": 3.59,
+        "intelligenceSkill": 1.22,
+        "socialSkill": 9.23,
+        "luck": 0.57,
+        "immunityWins": 14.0,
+        "votesReceived": 2.0,
+        "morale": 0.97
+    },
+    {
+        "name": "Lucy Huang",
+        "tribe": "Unknown",
+        "challengeSkill": 4.13,
+        "intelligenceSkill": 0.72,
+        "socialSkill": 5.0,
+        "luck": 0.51,
+        "immunityWins": 0.0,
+        "votesReceived": 2.0,
+        "morale": 0.64
+    },
+    {
+        "name": "Paul Wachter",
+        "tribe": "Unknown",
+        "challengeSkill": 3.45,
+        "intelligenceSkill": 0.69,
+        "socialSkill": 5.0,
+        "luck": 0.67,
+        "immunityWins": 0.0,
+        "votesReceived": 6.0,
+        "morale": 0.91
+    },
+    {
+        "name": "Rachel Ako",
+        "tribe": "Unknown",
+        "challengeSkill": 0.0,
+        "intelligenceSkill": -0.5,
+        "socialSkill": 1,
+        "luck": 0.69,
+        "immunityWins": 0.0,
+        "votesReceived": 5.0,
+        "morale": 0.92
+    },
+    {
+        "name": "Sunday Burquest",
+        "tribe": "Unknown",
+        "challengeSkill": 1.23,
+        "intelligenceSkill": 0.57,
+        "socialSkill": 8.33,
+        "luck": 0.98,
+        "immunityWins": 7.0,
+        "votesReceived": 5.0,
+        "morale": 0.77
+    }
+]

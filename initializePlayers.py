@@ -6,9 +6,9 @@ import openpyxl
 from class_Definitions.playerClass import Player
 
 # %%
-def fetch_and_process_season_data(seasonNum):
+def initialize_players_from_excel(seasonNum):
     """
-    Initializes players from the given season, processes data,
+    Initializes players from the given season, processes data from Excel,
     and returns the updated player list.
     """
     file_path = f"excel_data/survivor_season_{seasonNum}_data.xlsx"
