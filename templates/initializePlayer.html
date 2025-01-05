@@ -3,106 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Survivor Simulator</title>
+    <title>Initialize Players</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <!-- Background Audio -->
-    <audio id="background-audio" autoplay loop>
-        <source src="{{ url_for('static', filename='audio/survivor-theme.mp3') }}" type="audio/mpeg">
-        Your browser does not support the audio element. Please update your browser.
-    </audio>
-
-    <!-- Play/Pause Button -->
-    <div class="audio-controls">
-        <button id="audio-toggle" aria-label="Toggle Background Music">
-            <img id="audio-icon" src="{{ url_for('static', filename='img/audio-on-icon.png') }}" alt="Toggle Music" class="audio-icon">
-        </button>
-    </div>
-
-    <!-- Main Content -->
-    <div class="homepage">
-        <!-- Left Tiki Torch -->
+    <!-- Background -->
+    <div class="background">
         <div class="tiki-torch-left">
-            <img src="{{ url_for('static', filename='img/tiki-torch.png') }}" alt="Tiki Torch" class="tiki-torch">
+            <img src="{{ url_for('static', filename='img/tiki-torch.png') }}" alt="Tiki Torch">
         </div>
-        <h1>Initialized Players for Season {{ season_number }}</h1>
 
-        {% if players and players|length > 0 %}
-            <h2>Total Players Initialized: {{ players|length }}</h2>
-            <p>Below is the list of players and their stats:</p>
-            <table border="1" class="players-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Tribe</th>
-                        <th>Challenge Skill</th>
-                        <th>Intelligence Skill</th>
-                        <th>Social Skill</th>
-                        <th>Luck</th>
-                        <th>Immunity Wins</th>
-                        <th>Votes Received</th>
-                        <th>Morale</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for player in players %}
-                    <tr>
-                        <td>{{ player.name }}</td>
-                        <td>{{ player.tribe }}</td>
-                        <td>{{ player.challengeSkill }}</td>
-                        <td>{{ player.intelligenceSkill }}</td>
-                        <td>{{ player.socialSkill }}</td>
-                        <td>{{ player.luck }}</td>
-                        <td>{{ player.immunityWins }}</td>
-                        <td>{{ player.votesReceived }}</td>
-                        <td>{{ player.morale }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        {% else %}
-            <p>No players found for this season.</p>
-        {% endif %}
-    
-        <!-- Go Back Button -->
-        <a href="/" class="go-back-button">Go Back</a>
+        <h1>Initialize Players to Sort into Tribes</h1>
 
-        <!-- Right Tiki Torch -->
-        <div class="tiki-torch-right">
-            <img src="{{ url_for('static', filename='img/tiki-torch.png') }}" alt="Tiki Torch" class="tiki-torch">
+        <!-- Player Grid -->
+        <div class="player-grid-container">
+            <div class="player-grid">
+                <!-- Characters dynamically loaded into these squares -->
+                {% for player in players %}
+                <div class="player-box" data-name="{{ player.name }}">
+                    <img src="{{ player.image_url or url_for('static', filename='img/placeholder.png') }}" alt="{{ player.name }}">
+                    <p>{{ player.name }}</p>
+                </div>
+                {% endfor %}
+            </div>
         </div>
+
+        <!-- Control Buttons -->
+        <div class="controls">
+            <button id="add-button" class="button">Add</button>
+            <button id="remove-button" class="button">Remove</button>
+            <button id="next-button" class="button">Next</button>
+        </div>
+
+        <!-- Add Season Input -->
+        <div id="add-season-container" class="hidden">
+            <input id="season-input" type="text" placeholder="Enter another season number">
+            <button id="add-season-submit" class="button">Submit</button>
+        </div>
+
+      <!-- Right Tiki Torch -->
+      <div class="tiki-torch-right">
+        <img src="{{ url_for('static', filename='img/tiki-torch.png') }}" alt="Tiki Torch" class="tiki-torch">
+    </div>
+    <div class="tiki-torch-left">
+        <img src="{{ url_for('static', filename='img/tiki-torch.png') }}" alt="Tiki Torch" class="tiki-torch">
+    </div>
     </div>
 
-    <!-- JavaScript for Play/Pause Button -->
+    <!-- JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const audio = document.getElementById('background-audio');
-            const audioToggle = document.getElementById('audio-toggle');
-            const audioIcon = document.getElementById('audio-icon');
+            const players = JSON.parse('{{ players | tojson | safe }}'); // Fetch players dynamically
+            const playerGrid = document.querySelector('.player-grid');
+            const addButton = document.getElementById('add-button');
+            const removeButton = document.getElementById('remove-button');
+            const nextButton = document.getElementById('next-button');
+            const addSeasonContainer = document.getElementById('add-season-container');
+            const seasonInput = document.getElementById('season-input');
+            const addSeasonSubmit = document.getElementById('add-season-submit');
 
-            // Function to update the audio icon
-            const updateAudioIcon = () => {
-                if (audio.paused) {
-                    audioIcon.src = "{{ url_for('static', filename='img/audio-off-icon.png') }}";
-                    audioToggle.setAttribute('aria-label', 'Play Background Music');
-                } else {
-                    audioIcon.src = "{{ url_for('static', filename='img/audio-on-icon.png') }}";
-                    audioToggle.setAttribute('aria-label', 'Pause Background Music');
+            let selectedPlayer = null;
+
+            // Event to handle character selection
+            playerGrid.addEventListener('click', (event) => {
+                if (event.target.closest('.player-box')) {
+                    // Deselect previously selected player
+                    document.querySelectorAll('.player-box').forEach(box => box.classList.remove('selected'));
+                    // Select new player
+                    const playerBox = event.target.closest('.player-box');
+                    playerBox.classList.add('selected');
+                    selectedPlayer = playerBox.dataset.name;
                 }
-            };
+            });
 
-            // Set initial state of the audio icon
-            updateAudioIcon();
+            // Add Button Logic
+            addButton.addEventListener('click', () => {
+                addSeasonContainer.classList.toggle('hidden'); // Show or hide the add-season container
+            });
 
-            // Event listener for the audio toggle button
-            audioToggle.addEventListener('click', () => {
-                if (audio.paused) {
-                    audio.play();
+            // Add Season Submit Logic
+            addSeasonSubmit.addEventListener('click', () => {
+                const season = seasonInput.value.trim();
+                if (season) {
+                    window.location.href = `/process_season?season_number=${season}`;
                 } else {
-                    audio.pause();
+                    alert('Please enter a valid season number.');
                 }
-                updateAudioIcon();
+            });
+
+            // Remove Button Logic
+            removeButton.addEventListener('click', () => {
+                if (selectedPlayer) {
+                    // Remove the player visually from the grid
+                    const selectedBox = document.querySelector(`.player-box[data-name="${selectedPlayer}"]`);
+                    if (selectedBox) {
+                        selectedBox.remove();
+                    }
+                    // TODO: Add logic to update the backend if needed
+                    selectedPlayer = null;
+                } else {
+                    alert('Please select a player to remove.');
+                }
+            });
+
+            // Next Button Logic
+            nextButton.addEventListener('click', () => {
+                window.location.href = '/tribesorter';
             });
         });
     </script>

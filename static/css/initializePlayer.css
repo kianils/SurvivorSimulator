@@ -1,4 +1,4 @@
-/* General Body Styling */
+/* General Styles */
 body {
     margin: 0;
     padding: 0;
@@ -25,7 +25,8 @@ body::before {
     z-index: -1;
 }
 
-.homepage {
+/* Main Container */
+.background {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,9 +34,20 @@ body::before {
     width: 100%;
     height: 100%;
     position: relative;
-    padding: 0;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
+/* Title */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #fdf5e6;
+    text-shadow: 2px 2px 4px #000;
+    text-align: center;
+}
+
+/* Torch Styling */
 .tiki-torch-left, .tiki-torch-right {
     position: absolute;
     bottom: 0;
@@ -60,49 +72,133 @@ body::before {
     transform: scaleX(-1) translateY(20px);
 }
 
-/* Audio Controls Styling */
-.audio-controls {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 10;
-}
 
-.audio-controls button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
+/* Player Grid */
+.player-grid-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 20px 0;
+    width: 100%;
 }
 
-.audio-icon {
-    width: 40px;
-    height: 40px;
-    transition: transform 0.3s ease;
+.player-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    width: 50%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #8b4513;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
-.audio-controls button:hover .audio-icon {
-    transform: scale(1.2);
+/* Player Box */
+.player-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #d2a679;
+    border: 2px solid #8b4513;
+    border-radius: 5px;
+    height: 120px;
+    width: 100%;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    overflow: hidden;
+}
+
+.player-box img {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 5px;
+    border: 2px solid #8b4513;
+}
+
+.player-box p {
+    font-size: 14px;
+    color: #000;
+    font-weight: bold;
+    margin: 0;
+}
+
+.player-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.player-box.selected {
+    border: 3px solid #ff4500;
+}
+
+/* Buttons */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.button {
+    background: #8b4513;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background: #654321;
+    transform: scale(1.1);
+}
+
+#add-season-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+#add-season-container.hidden {
+    display: none;
+}
+
+#season-input {
+    padding: 8px;
+    font-size: 14px;
+    border: 2px solid #8b4513;
+    border-radius: 5px;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .homepage {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
+    .player-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .tiki-torch {
-        width: 150px;
+    .tiki-torch-left img,
+    .tiki-torch-right img {
+        width: 80px;
     }
 
-    .audio-icon {
-        width: 30px;
-        height: 30px;
+    .button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    h1 {
+        font-size: 20px;
     }
 }
