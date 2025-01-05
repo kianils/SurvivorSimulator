@@ -1,7 +1,9 @@
 from flask import Flask, request, render_template, redirect, url_for
 from SurvivorData import fetch_and_process_season_data  # Fetch data from the website
 from initializePlayers import initialize_players_from_excel  # Initialize players from Excel
+from utils import fetch_player_images  # Fetch player images from Google Images
 import logging
+import os
 
 app = Flask(__name__)
 
@@ -45,6 +47,15 @@ def process_season():
         # Step 2: Initialize players from the Excel file
         logging.info(f"Initializing players for Season {season_number}...")
         players = initialize_players_from_excel(season_number)
+
+        # Step 3: Fetch images for the players
+        player_names = [player['name'] for player in players]
+        logging.info(f"Fetching images for {len(player_names)} players...")
+        player_images = fetch_player_images(player_names, season_number)
+
+        # Attach the image URLs to each player
+        for player in players:
+            player['image_url'] = player_images.get(player['name'], None)
 
         # Render the initializePlayer template with player data
         return render_template(

@@ -1,14 +1,14 @@
 import pandas as pd
 import numpy as np
 import json
-import openpyxl
-from class_Definitions.playerClass import Player
+import os
+from utils import fetch_player_images  # Import the image-fetching function
 
 
 def initialize_players_from_excel(season_number):
     """
-    Initializes players from the given season, processes data,
-    and returns the updated player list.
+    Initializes players from the given season, processes data, 
+    fetches their images, and returns the updated player list.
     """
     file_path = f"excel_data/survivor_season_{season_number}_data.xlsx"
     output_path = f"jsonData/survivor_season_{season_number}_players.json"
@@ -78,6 +78,14 @@ def initialize_players_from_excel(season_number):
             "morale": morale,
         }
         players.append(player)
+
+    # Fetch images for all players
+    player_names = [player['name'] for player in players]
+    player_images = fetch_player_images(player_names, season_number)
+
+    # Attach images to player data
+    for player in players:
+        player['image_url'] = player_images.get(player['name'])
 
     # Handle duplicate removal and save player data
     try:

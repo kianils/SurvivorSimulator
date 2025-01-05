@@ -18,10 +18,13 @@
         <!-- Player Grid -->
         <div class="player-grid-container">
             <div class="player-grid">
-                <!-- Characters dynamically loaded into these squares -->
                 {% for player in players %}
                 <div class="player-box" data-name="{{ player.name }}">
-                    <img src="{{ player.image_url or url_for('static', filename='img/placeholder.png') }}" alt="{{ player.name }}">
+                    <!-- Display player image or a placeholder if not available -->
+                    <img 
+                        src="{{ player.image or url_for('static', filename='img/placeholder.png') }}" 
+                        alt="{{ player.name }}" 
+                        class="player-image">
                     <p>{{ player.name }}</p>
                 </div>
                 {% endfor %}
@@ -41,19 +44,16 @@
             <button id="add-season-submit" class="button">Submit</button>
         </div>
 
-      <!-- Right Tiki Torch -->
-      <div class="tiki-torch-right">
-        <img src="{{ url_for('static', filename='img/tiki-torch.png') }}" alt="Tiki Torch" class="tiki-torch">
-    </div>
-    <div class="tiki-torch-left">
-        <img src="{{ url_for('static', filename='img/tiki-torch.png') }}" alt="Tiki Torch" class="tiki-torch">
-    </div>
+        <!-- Right Tiki Torch -->
+        <div class="tiki-torch-right">
+            <img src="{{ url_for('static', filename='img/tiki-torch.png') }}" alt="Tiki Torch">
+        </div>
     </div>
 
     <!-- JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const players = JSON.parse('{{ players | tojson | safe }}'); // Fetch players dynamically
+            // Fetch player grid and controls
             const playerGrid = document.querySelector('.player-grid');
             const addButton = document.getElementById('add-button');
             const removeButton = document.getElementById('remove-button');
@@ -62,29 +62,31 @@
             const seasonInput = document.getElementById('season-input');
             const addSeasonSubmit = document.getElementById('add-season-submit');
 
-            let selectedPlayer = null;
+            let selectedPlayer = null; // Track selected player
 
-            // Event to handle character selection
+            // Event to handle player selection
             playerGrid.addEventListener('click', (event) => {
                 if (event.target.closest('.player-box')) {
-                    // Deselect previously selected player
+                    // Deselect all player boxes
                     document.querySelectorAll('.player-box').forEach(box => box.classList.remove('selected'));
-                    // Select new player
+
+                    // Select the clicked player box
                     const playerBox = event.target.closest('.player-box');
                     playerBox.classList.add('selected');
-                    selectedPlayer = playerBox.dataset.name;
+                    selectedPlayer = playerBox.dataset.name; // Get player name
                 }
             });
 
-            // Add Button Logic
+            // Add Button Logic: Show/Hide Add Season Input
             addButton.addEventListener('click', () => {
-                addSeasonContainer.classList.toggle('hidden'); // Show or hide the add-season container
+                addSeasonContainer.classList.toggle('hidden'); // Toggle visibility of the add season container
             });
 
             // Add Season Submit Logic
             addSeasonSubmit.addEventListener('click', () => {
                 const season = seasonInput.value.trim();
                 if (season) {
+                    // Redirect to fetch new season data
                     window.location.href = `/process_season?season_number=${season}`;
                 } else {
                     alert('Please enter a valid season number.');
@@ -99,16 +101,16 @@
                     if (selectedBox) {
                         selectedBox.remove();
                     }
-                    // TODO: Add logic to update the backend if needed
-                    selectedPlayer = null;
+                    // Optional: Send an update to the backend to remove the player
+                    selectedPlayer = null; // Reset selection
                 } else {
                     alert('Please select a player to remove.');
                 }
             });
 
-            // Next Button Logic
+            // Next Button Logic: Navigate to Tribe Sorter Page
             nextButton.addEventListener('click', () => {
-                window.location.href = '/tribesorter';
+                window.location.href = '/tribesorter'; // Redirect to the Tribe Sorter page
             });
         });
     </script>
