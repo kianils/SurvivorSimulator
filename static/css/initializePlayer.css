@@ -8,7 +8,6 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    position: relative;
     background: rgba(0, 0, 0, 0.5);
 }
 
@@ -21,32 +20,9 @@ body::before {
     height: 100%;
     background: url('../img/background-survivor.jpg') no-repeat center center fixed;
     background-size: cover;
-    opacity: 0.85;
+    opacity: 0.9;
     z-index: -1;
 }
-
-/* Main Container */
-.background {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-/* Title */
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #fdf5e6;
-    text-shadow: 2px 2px 4px #000;
-    text-align: center;
-}
-
 /* Torch Styling */
 .tiki-torch-left, .tiki-torch-right {
     position: absolute;
@@ -72,75 +48,65 @@ h1 {
     transform: scaleX(-1) translateY(20px);
 }
 
-
-/* Player Grid */
-.player-grid-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-    width: 100%;
-}
-
-.player-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    width: 50%;
-    max-width: 500px;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    border-radius: 10px;
-    border: 2px solid #8b4513;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-}
-
-/* Player Box */
-.player-box {
+/* Main Container */
+.background {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Title */
+h1 {
+    color: #fdf5e6;
+    text-shadow: 2px 2px 4px #000;
+    font-size: 28px;
+}
+
+/* Player Grid */
+.player-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 80%;
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+.player-box {
     background: #d2a679;
     border: 2px solid #8b4513;
-    border-radius: 5px;
-    height: 120px;
-    width: 100%;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    border-radius: 10px;
     text-align: center;
-    overflow: hidden;
+    padding: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
 }
 
 .player-box img {
-    height: 50px;
-    width: 50px;
-    object-fit: cover;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    margin-bottom: 5px;
+    object-fit: cover;
+    margin-bottom: 8px;
     border: 2px solid #8b4513;
 }
 
-.player-box p {
+.player-box .player-name {
+    font-weight: bold;
     font-size: 14px;
     color: #000;
-    font-weight: bold;
-    margin: 0;
-}
-
-.player-box:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .player-box.selected {
     border: 3px solid #ff4500;
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.6);
 }
 
-/* Buttons */
+/* Controls */
 .controls {
     display: flex;
-    justify-content: center;
     gap: 15px;
     margin-top: 20px;
 }
@@ -162,13 +128,11 @@ h1 {
     transform: scale(1.1);
 }
 
+/* Add Season Input */
 #add-season-container {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
     gap: 10px;
+    margin-top: 20px;
 }
 
 #add-season-container.hidden {
@@ -177,28 +141,6 @@ h1 {
 
 #season-input {
     padding: 8px;
-    font-size: 14px;
     border: 2px solid #8b4513;
     border-radius: 5px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .player-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .tiki-torch-left img,
-    .tiki-torch-right img {
-        width: 80px;
-    }
-
-    .button {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
-
-    h1 {
-        font-size: 20px;
-    }
 }

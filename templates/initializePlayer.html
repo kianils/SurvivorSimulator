@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Initialize Players</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/InitializePlayer.css') }}">
 </head>
 <body>
-    <!-- Background -->
     <div class="background">
         <div class="tiki-torch-left">
             <img src="{{ url_for('static', filename='img/tiki-torch.png') }}" alt="Tiki Torch">
@@ -15,104 +14,85 @@
 
         <h1>Initialize Players to Sort into Tribes</h1>
 
-        <!-- Player Grid -->
         <div class="player-grid-container">
             <div class="player-grid">
                 {% for player in players %}
                 <div class="player-box" data-name="{{ player.name }}">
-                    <!-- Display player image or a placeholder if not available -->
                     <img 
-                        src="{{ player.image or url_for('static', filename='img/placeholder.png') }}" 
+                        src="{{ url_for('static', filename='player_images/season/{{ player.image }}') }}" 
                         alt="{{ player.name }}" 
                         class="player-image">
-                    <p>{{ player.name }}</p>
+                    <p class="player-name">{{ player.name }}</p>
                 </div>
                 {% endfor %}
             </div>
         </div>
 
-        <!-- Control Buttons -->
         <div class="controls">
             <button id="add-button" class="button">Add</button>
             <button id="remove-button" class="button">Remove</button>
             <button id="next-button" class="button">Next</button>
         </div>
 
-        <!-- Add Season Input -->
         <div id="add-season-container" class="hidden">
             <input id="season-input" type="text" placeholder="Enter another season number">
             <button id="add-season-submit" class="button">Submit</button>
         </div>
 
-        <!-- Right Tiki Torch -->
         <div class="tiki-torch-right">
             <img src="{{ url_for('static', filename='img/tiki-torch.png') }}" alt="Tiki Torch">
         </div>
     </div>
-
-    <!-- JavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Fetch player grid and controls
-            const playerGrid = document.querySelector('.player-grid');
-            const addButton = document.getElementById('add-button');
-            const removeButton = document.getElementById('remove-button');
-            const nextButton = document.getElementById('next-button');
-            const addSeasonContainer = document.getElementById('add-season-container');
-            const seasonInput = document.getElementById('season-input');
-            const addSeasonSubmit = document.getElementById('add-season-submit');
-
-            let selectedPlayer = null; // Track selected player
-
-            // Event to handle player selection
-            playerGrid.addEventListener('click', (event) => {
-                if (event.target.closest('.player-box')) {
-                    // Deselect all player boxes
-                    document.querySelectorAll('.player-box').forEach(box => box.classList.remove('selected'));
-
-                    // Select the clicked player box
-                    const playerBox = event.target.closest('.player-box');
-                    playerBox.classList.add('selected');
-                    selectedPlayer = playerBox.dataset.name; // Get player name
-                }
-            });
-
-            // Add Button Logic: Show/Hide Add Season Input
-            addButton.addEventListener('click', () => {
-                addSeasonContainer.classList.toggle('hidden'); // Toggle visibility of the add season container
-            });
-
-            // Add Season Submit Logic
-            addSeasonSubmit.addEventListener('click', () => {
-                const season = seasonInput.value.trim();
-                if (season) {
-                    // Redirect to fetch new season data
-                    window.location.href = `/process_season?season_number=${season}`;
-                } else {
-                    alert('Please enter a valid season number.');
-                }
-            });
-
-            // Remove Button Logic
-            removeButton.addEventListener('click', () => {
-                if (selectedPlayer) {
-                    // Remove the player visually from the grid
-                    const selectedBox = document.querySelector(`.player-box[data-name="${selectedPlayer}"]`);
-                    if (selectedBox) {
-                        selectedBox.remove();
-                    }
-                    // Optional: Send an update to the backend to remove the player
-                    selectedPlayer = null; // Reset selection
-                } else {
-                    alert('Please select a player to remove.');
-                }
-            });
-
-            // Next Button Logic: Navigate to Tribe Sorter Page
-            nextButton.addEventListener('click', () => {
-                window.location.href = '/tribesorter'; // Redirect to the Tribe Sorter page
-            });
-        });
-    </script>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const playerGrid = document.querySelector('.player-grid')
+        const addButton = document.getElementById('add-button')
+        const removeButton = document.getElementById('remove-button')
+        const nextButton = document.getElementById('next-button')
+        const addSeasonContainer = document.getElementById('add-season-container')
+        const seasonInput = document.getElementById('season-input')
+        const addSeasonSubmit = document.getElementById('add-season-submit')
+
+        let selectedPlayer = null
+
+        playerGrid.addEventListener('click', (event) => {
+            const playerBox = event.target.closest('.player-box')
+            if (playerBox) {
+                document.querySelectorAll('.player-box').forEach(box => box.classList.remove('selected'))
+                playerBox.classList.add('selected')
+                selectedPlayer = playerBox.dataset.name
+            }
+        })
+
+        removeButton.addEventListener('click', () => {
+            if (selectedPlayer) {
+                const selectedBox = document.querySelector(`.player-box[data-name="${selectedPlayer}"]`)
+                if (selectedBox) {
+                    selectedBox.remove()
+                }
+                selectedPlayer = null
+            } else {
+                alert('Please select a player to remove.')
+            }
+        })
+
+        addButton.addEventListener('click', () => {
+            addSeasonContainer.classList.toggle('hidden')
+        })
+
+        addSeasonSubmit.addEventListener('click', () => {
+            const season = seasonInput.value.trim()
+            if (season) {
+                window.location.href = `/process_season?season_number=${season}`
+            } else {
+                alert('Please enter a valid season number.')
+            }
+        })
+
+        nextButton.addEventListener('click', () => {
+            window.location.href = '/tribesorter'
+        })
+    })
+</script>
 </html>
